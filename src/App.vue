@@ -1,30 +1,53 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <a-layout>
+    <a-layout-sider
+      breakpoint="lg"
+      collapsed-width="0"
+    >
+      <av-side-menu/>
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header :style="{ background: '#fff', padding: 0, textAlign: 'center' }">
+        <h1>702avdb</h1>
+      </a-layout-header>
+
+      <a-layout-content>
+        <div :style="{ padding: '50px', background: '#fff', minHeight: '360px'}">
+          <router-view/>
+        </div>
+      </a-layout-content>
+
+      <a-layout-footer style="text-align: center">
+        702avdb ©2021 Created by DeLong
+      </a-layout-footer>
+    </a-layout>
+  </a-layout>
+  <a-back-top/>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { provideDirtyAvsStore } from "@/store/DirtyAvs";
+import { provideAppStore } from "@/store/AppStore";
+import AvSideMenu from '@/components/AvSideMenu.vue'
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    AvSideMenu,
+  },
+  setup() {
+    provideAppStore()
+    provideDirtyAvsStore()
+  }
+})
+</script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
