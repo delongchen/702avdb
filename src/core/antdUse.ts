@@ -12,10 +12,12 @@ import {
   Card,
   Image,
   Dropdown,
-  Divider
+  Collapse,
+  Tag
 } from 'ant-design-vue'
 
 function antdUse(app: App<Element>): void {
+  app.use(Collapse)
   app.use(Button)
   app.use(List)
   app.use(Modal)
@@ -27,7 +29,7 @@ function antdUse(app: App<Element>): void {
   app.use(Card)
   app.use(Image)
   app.use(Dropdown)
-  app.use(Divider)
+  app.use(Tag)
 }
 
 export default antdUse

@@ -1,7 +1,7 @@
 const plugins = []
 
 plugins.push(['import', {
-  'libraryName': ['ant-design-vue', '@ant-design/icons-vue'],
+  'libraryName': 'ant-design-vue',
   'libraryDirectory': 'es',
   'style': 'css'
 }])
