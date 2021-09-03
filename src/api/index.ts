@@ -3,6 +3,7 @@ import type { AvDesc, DirtyAvDesc } from "@/types/AvDesc";
 const baseUrl = 'http://pi3.manjaro'
 const port = 8889
 const serverUrl = `${baseUrl}:${port}/`
+const git = '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'
 
 const getGoodAvs = (): Promise<AvDesc[]> => fetch(serverUrl + 'gavs')
   .then(it => it.json() as Promise<AvDesc[]>)
